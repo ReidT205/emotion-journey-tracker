@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Journey Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Emotion Journey Tracker</h1>
+        </header>
+
+        <div class="control-panel">
+            <div class="metric-selector">
+                <label for="metric-select">Select Metric to Track:</label>
+                <select id="metric-select">
+                    <option value="confidence">Confidence</option>
+                    <option value="happiness">Happiness</option>
+                    <option value="motivation">Motivation</option>
+                    <option value="interest">Interest</option>
+                    <option value="hope">Hope</option>
+                    <option value="effort">Effort</option>
+                    <option value="passion">Passion</option>
+                    <option value="pressure">Pressure</option>
+                    <option value="success">Success</option>
+                    <option value="anxiety">Anxiety</option>
+                    <option value="productivity">Productivity</option>
+                </select>
+            </div>
+            <button id="add-point-btn">Add Data Point</button>
+            <button id="save-btn">Save Journey</button>
+            <button id="load-btn">Load Journey</button>
+            <button id="sort-btn">Sort by Value</button>
+        </div>
+
+        <div class="data-management">
+            <button id="export-btn">Export to File</button>
+            <button id="import-btn">Import from File</button>
+            <input type="file" id="import-file" accept=".json" style="display: none;">
+        </div>
+
+        <div class="chart-container">
+            <canvas id="emotion-chart"></canvas>
+        </div>
+
+        <div class="data-entry">
+            <h2>Add New Data Point</h2>
+            <div class="input-group">
+                <label for="milestone-input">Milestone/Week:</label>
+                <input type="text" id="milestone-input" placeholder="Week 1, Prototype, etc.">
+            </div>
+            <div class="input-group">
+                <label for="value-input">Value (1-10):</label>
+                <input type="range" id="value-input" min="0" max="11" value="5">
+                <span id="value-display">5</span>
+            </div>
+            <div class="input-group">
+                <label for="annotation-input">Annotation:</label>
+                <textarea id="annotation-input" placeholder="What happened at this point?"></textarea>
+            </div>
+        </div>
+
+        <div class="data-points">
+            <h2>Journey Points</h2>
+            <ul id="points-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
